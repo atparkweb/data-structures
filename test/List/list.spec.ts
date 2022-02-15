@@ -38,5 +38,10 @@ describe('List ADT', () => {
     it('should be defined', () => {
       expect(list.insertAtFront).toBeDefined();
     });
+
+    it('should add node to front', () => {
+      list.insertAtFront(5);
+      expect(list.toArray()).toEqual([5]);
+    });
   });
 });
