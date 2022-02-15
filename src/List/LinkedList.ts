@@ -41,11 +41,8 @@ export default class LinkedList {
                 value,
                 next: null
             };
-        } else {
-            current = {
-                value,
-                next: null
-            };
+
+            this.length += 1;
         }
     }
 
@@ -56,6 +53,8 @@ export default class LinkedList {
             value,
             next: currentHead
         };
+
+        this.length += 1;
     }
 
     toArray() {

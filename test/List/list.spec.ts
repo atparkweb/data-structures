@@ -29,19 +29,46 @@ describe('List ADT', () => {
   });
 
   describe('appendToTail', () => {
-    it('should be defined', () => {
+    it('should have appendToTail method', () => {
       expect(list.appendToTail).toBeDefined();
+    });
+
+    it('should be able to appendToTail', () => {
+      list.appendToTail(9)
+      expect(list.toArray()).toEqual([9]);
+      list.appendToTail(16)
+      expect(list.toArray()).toEqual([9, 16]);
+      list.appendToTail(25)
+      expect(list.toArray()).toEqual([9, 16, 25]);
+    });
+
+    it('should update length after insert', () => {
+      expect(list.length).toEqual(0);
+      list.appendToTail(1);
+      expect(list.length).toEqual(1);
+      list.appendToTail(2);
+      expect(list.length).toEqual(2);
     });
   });
 
   describe('insertAtFront', () => {
-    it('should be defined', () => {
+    it('should have insertAtFront method', () => {
       expect(list.insertAtFront).toBeDefined();
     });
 
     it('should add node to front', () => {
       list.insertAtFront(5);
       expect(list.toArray()).toEqual([5]);
+      list.insertAtFront(3);
+      expect(list.toArray()).toEqual([3, 5]);
+    });
+
+    it('should update length after insert', () => {
+      expect(list.length).toEqual(0);
+      list.insertAtFront(1);
+      expect(list.length).toEqual(1);
+      list.insertAtFront(2);
+      expect(list.length).toEqual(2);
     });
   });
 });
