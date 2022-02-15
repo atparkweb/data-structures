@@ -33,4 +33,10 @@ describe('List ADT', () => {
       expect(list.appendToTail).toBeDefined();
     });
   });
+
+  describe('insertAtFront', () => {
+    it('should be defined', () => {
+      expect(list.insertAtFront).toBeDefined();
+    });
+  });
 });
