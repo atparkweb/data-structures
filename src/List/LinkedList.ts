@@ -50,6 +50,10 @@ export default class LinkedList {
         this.length += 1;
     }
 
+    search(value: number) {
+
+    }
+
     remove(value: number) {
         let current = this.head;
         let previous = current;

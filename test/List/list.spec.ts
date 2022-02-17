@@ -85,6 +85,15 @@ describe('List ADT', () => {
     });
   });
 
+  describe('search', () => {
+    it('should exist', () => {
+      expect(list2.search).toBeDefined();
+    });
+
+    it('should be able to find a node by value', () => {
+    });
+  });
+
   describe('insertAt', () => {
     it.skip('should be defined', () => {
     });
