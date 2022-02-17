@@ -1,10 +1,12 @@
 import LinkedList from '../../src/List/LinkedList';
 
 describe('List ADT', () => {
-  let list: LinkedList;
+  let list1: LinkedList;
+  let list2: LinkedList;
 
   beforeEach(() => {
-    list = new LinkedList();
+    list1 = new LinkedList();
+    list2 = new LinkedList([1, 2, 3, 4, 5]);
   });
 
   it('should be a constructor', () => {
@@ -12,7 +14,7 @@ describe('List ADT', () => {
   });
 
   it('should be able to check if empty', () => {
-    expect(list.isEmpty()).toBe(true);
+    expect(list1.isEmpty()).toBe(true);
   });
 
   describe('toArray', () => {
@@ -23,52 +25,63 @@ describe('List ADT', () => {
 
     it('should be able to create from an array', () => {
       const newList = new LinkedList([1, 4, 9, 16]);
-      expect(newList.head.value).toEqual(1);
+      expect(newList.head?.value).toEqual(1);
       expect(newList.toArray()).toEqual([1, 4, 9, 16]);
     });
   });
 
   describe('appendToTail', () => {
     it('should be defined', () => {
-      expect(list.appendToTail).toBeDefined();
+      expect(list1.appendToTail).toBeDefined();
     });
 
     it('should be able to appendToTail', () => {
-      list.appendToTail(9)
-      expect(list.toArray()).toEqual([9]);
-      list.appendToTail(16)
-      expect(list.toArray()).toEqual([9, 16]);
-      list.appendToTail(25)
-      expect(list.toArray()).toEqual([9, 16, 25]);
+      list1.appendToTail(9)
+      expect(list1.toArray()).toEqual([9]);
+      list1.appendToTail(16)
+      expect(list1.toArray()).toEqual([9, 16]);
+      list1.appendToTail(25)
+      expect(list1.toArray()).toEqual([9, 16, 25]);
     });
 
     it('should update length after insert', () => {
-      expect(list.length).toEqual(0);
-      list.appendToTail(1);
-      expect(list.length).toEqual(1);
-      list.appendToTail(2);
-      expect(list.length).toEqual(2);
+      expect(list1.length).toEqual(0);
+      list1.appendToTail(1);
+      expect(list1.length).toEqual(1);
+      list1.appendToTail(2);
+      expect(list1.length).toEqual(2);
     });
   });
 
   describe('insertAtFront', () => {
     it('should be defined', () => {
-      expect(list.insertAtFront).toBeDefined();
+      expect(list1.insertAtFront).toBeDefined();
     });
 
     it('should add node to front', () => {
-      list.insertAtFront(5);
-      expect(list.toArray()).toEqual([5]);
-      list.insertAtFront(3);
-      expect(list.toArray()).toEqual([3, 5]);
+      list1.insertAtFront(5);
+      expect(list1.toArray()).toEqual([5]);
+      list1.insertAtFront(3);
+      expect(list1.toArray()).toEqual([3, 5]);
     });
 
     it('should update length after insert', () => {
-      expect(list.length).toEqual(0);
-      list.insertAtFront(1);
-      expect(list.length).toEqual(1);
-      list.insertAtFront(2);
-      expect(list.length).toEqual(2);
+      expect(list1.length).toEqual(0);
+      list1.insertAtFront(1);
+      expect(list1.length).toEqual(1);
+      list1.insertAtFront(2);
+      expect(list1.length).toEqual(2);
+    });
+  });
+
+  describe('remove', () => {
+    it('should exist', () => {
+      expect(list2.remove).toBeDefined();
+    });
+
+    it('should remove the correct node', () => {
+      list2.remove(3);
+      expect(list2.toArray()).toEqual([1, 2, 4, 5]);
     });
   });
 

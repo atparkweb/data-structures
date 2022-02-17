@@ -2,26 +2,14 @@ import ListNode from './ListNode';
 
 export default class LinkedList {
     length: number;
-    head: ListNode;
+    head: ListNode | null;
 
     constructor(numbers: number[] = []) {
         this.length = numbers.length;
+        this.head = null;
 
-        this.head = {
-            value: numbers[0],
-            next: null
-        };
-
-        if (numbers.length > 0) {
-            let next = this.head;
-            for (let i = 1; i < numbers.length; i++) {
-                next.next = {
-                    value: numbers[i],
-                    next: null
-                }
-                
-                next = next.next;
-            }
+        for (let i = 0; i < numbers.length; i++) {
+            this.appendToTail(numbers[i]);
         }
     }
 
@@ -30,9 +18,14 @@ export default class LinkedList {
     }
 
     appendToTail(value: number) {
-        let current = this.head;
+        if (!this.head) {
+            this.head = {
+                value,
+                next: null
+            }
+        } else {
+            let current = this.head;
 
-        if (current !== null) {
             while (current.next !== null) {
                 current = current.next;
             }
@@ -41,9 +34,9 @@ export default class LinkedList {
                 value,
                 next: null
             };
-
-            this.length += 1;
         }
+
+        this.length += 1;
     }
 
     insertAtFront(value: number) {
@@ -55,6 +48,28 @@ export default class LinkedList {
         };
 
         this.length += 1;
+    }
+
+    remove(value: number) {
+        let current = this.head;
+        let previous = current;
+
+        if (current?.value === value) {
+            this.head = current.next;
+        }
+
+        while (current !== null) {
+
+            if (current.value === value) {
+                break;
+            }
+
+            previous = current;
+            current = current.next;
+        }
+        if (current === null || previous === null) return;
+
+        previous.next = current.next;
     }
 
     // insertAt(position: number, value: number) {
@@ -80,13 +95,11 @@ export default class LinkedList {
     toArray() {
         const result = [];
 
-        let current = this.head ? this.head : null;
+        let current = this.head;
 
         while (current !== null) {
-            if (current.value) {
-                result.push(current.value);
-            }
-            current = current?.next;
+            result.push(current.value);
+            current = current.next;
         }
 
         return result;
