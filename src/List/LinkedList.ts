@@ -103,10 +103,19 @@ export default class LinkedList {
                 if (previous !== null) {
                     previous.next = newNode;
                 }
+                break;
             }
+
             index += 1;
             previous = current;
             current = current.next;
+        }
+
+        if (this.head === null) {
+            this.head = {
+                value,
+                next: null
+            };
         }
     }
 

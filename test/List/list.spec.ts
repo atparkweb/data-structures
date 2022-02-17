@@ -115,5 +115,10 @@ describe('List ADT', () => {
     it('should insert value at position', () => {
       list2.insertAt(3, 3)
     });
+
+    it('should insert value on an empty list', () => {
+      list1.insertAt(0, 1);
+      expect(list1.toArray()).toEqual([1]);
+    });
   });
 });
