@@ -1,11 +1,15 @@
 {
   "include": ["./src/**/*"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "./src/**/*.spec.ts"],
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
     "rootDir": "./src",
     "outDir": "./build",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
+    },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
