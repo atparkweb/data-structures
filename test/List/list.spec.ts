@@ -29,7 +29,7 @@ describe('List ADT', () => {
   });
 
   describe('appendToTail', () => {
-    it('should have appendToTail method', () => {
+    it('should be defined', () => {
       expect(list.appendToTail).toBeDefined();
     });
 
@@ -52,7 +52,7 @@ describe('List ADT', () => {
   });
 
   describe('insertAtFront', () => {
-    it('should have insertAtFront method', () => {
+    it('should be defined', () => {
       expect(list.insertAtFront).toBeDefined();
     });
 
@@ -69,6 +69,17 @@ describe('List ADT', () => {
       expect(list.length).toEqual(1);
       list.insertAtFront(2);
       expect(list.length).toEqual(2);
+    });
+  });
+
+  describe('insertAt', () => {
+    it.skip('should be defined', () => {
+    });
+
+    it.skip('should throw error when out of bounds', () => {
+    });
+
+    it.skip('should insert value at position', () => {
     });
   });
 });
