@@ -102,10 +102,14 @@ describe('List ADT', () => {
   });
 
   describe('insertAt', () => {
-    it.skip('should be defined', () => {
+    it('should be defined', () => {
+      expect(list2.insertAt).toBeDefined();
     });
 
-    it.skip('should throw error when out of bounds', () => {
+    it('should throw error when out of bounds', () => {
+      const errorMessage = 'Position out of bounds';
+      expect(() => list2.insertAt(100, 8)).toThrowError(errorMessage);
+      expect(() => list2.insertAt(-10, 1)).toThrowError(errorMessage);
     });
 
     it.skip('should insert value at position', () => {
