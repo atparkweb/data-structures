@@ -1,4 +1,4 @@
 export default interface ListNode {
-  value?: number,
+  value: number,
   next: ListNode | null
 }
