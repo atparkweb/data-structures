@@ -126,5 +126,11 @@ describe('List ADT', () => {
       list1.insertAt(0, 1);
       expect(list1.toArray()).toEqual([1]);
     });
+
+    it('should upate length on', () => {
+      expect(list2.length).toEqual(5);
+      list2.insertAt(0, 1);
+      expect(list2.length).toEqual(6);
+    });
   });
 });

@@ -102,6 +102,7 @@ export default class LinkedList {
                 if (previous !== null) {
                     previous.next = newNode;
                 }
+                this.length += 1;
                 break;
             }
 
@@ -115,7 +116,9 @@ export default class LinkedList {
                 value,
                 next: null
             };
+            this.length += 1;
         }
+
     }
 
     toArray() {
