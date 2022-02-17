@@ -91,6 +91,13 @@ describe('List ADT', () => {
     });
 
     it('should be able to find a node by value', () => {
+        const result = list2.search(4);
+        expect(result?.value).toEqual(4);
+    });
+
+    it('should return null if not found', () => {
+      const result = list2.search(100);
+      expect(result).toBeNull();
     });
   });
 

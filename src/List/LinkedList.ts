@@ -51,7 +51,16 @@ export default class LinkedList {
     }
 
     search(value: number) {
+        let current = this.head;
 
+        while (current !== null) {
+            if (current.value === value) {
+                return current;
+            }
+            current = current.next;
+        }
+
+        return null;
     }
 
     remove(value: number) {
