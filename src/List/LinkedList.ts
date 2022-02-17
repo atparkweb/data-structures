@@ -120,15 +120,25 @@ export default class LinkedList {
     }
 
     toArray() {
-        const result = [];
+        const result: Array<number> = [];
 
-        let current = this.head;
-
-        while (current !== null) {
+        this.traverse((current: ListNode) => {
             result.push(current.value);
-            current = current.next;
-        }
+        });
 
         return result;
+    }
+
+    traverse(callback: Function) {
+        let current  = this.head;
+        let previous = null;
+
+        while (current !== null) {
+            const breakLoop = callback(current, previous);
+            if (breakLoop) break;
+
+            previous = current;
+            current = current.next;
+        }
     }
 }
