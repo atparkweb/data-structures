@@ -51,6 +51,11 @@ describe('List ADT', () => {
       list1.appendToTail(2);
       expect(list1.length).toEqual(2);
     });
+
+    it('should return the inserted node', () => {
+      const node = list2.appendToTail(6);
+      expect(node).toEqual({ value: 6, next: null });
+    });
   });
 
   describe('insertAtFront', () => {

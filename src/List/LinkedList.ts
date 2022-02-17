@@ -3,13 +3,19 @@ import ListNode from './ListNode';
 export default class LinkedList {
     length: number;
     head: ListNode | null;
+    tail: ListNode | null;
 
     constructor(numbers: number[] = []) {
         this.length = 0;
         this.head = null;
+        this.tail = null;
 
         for (let i = 0; i < numbers.length; i++) {
-            this.appendToTail(numbers[i]);
+            const node = this.appendToTail(numbers[i]);
+
+            if (i === numbers.length - 1) {
+                this.tail = node;
+            }
         }
     }
 
@@ -18,11 +24,13 @@ export default class LinkedList {
     }
 
     appendToTail(value: number) {
+        let newNode;
+
         if (!this.head) {
-            this.head = {
+            newNode = this.head = {
                 value,
                 next: null
-            }
+            };
         } else {
             let current = this.head;
 
@@ -30,13 +38,14 @@ export default class LinkedList {
                 current = current.next;
             }
 
-            current.next = {
+            newNode = current.next = {
                 value,
                 next: null
             };
         }
 
         this.length += 1;
+        return newNode;
     }
 
     insertAtFront(value: number) {
@@ -63,6 +72,7 @@ export default class LinkedList {
         return null;
     }
 
+    // TODO: update tail if last is removed
     removeAt(position: number) {
         let current = this.head;
         let previous = current;
@@ -84,6 +94,7 @@ export default class LinkedList {
         this.length -= 1;
     }
 
+    // TODO: update tail if inserted at back
     insertAt(position: number, value: number) {
         if (position > this.length || position < 0) throw new Error('Position out of bounds');
 
@@ -118,7 +129,6 @@ export default class LinkedList {
             };
             this.length += 1;
         }
-
     }
 
     toArray() {
