@@ -112,7 +112,8 @@ describe('List ADT', () => {
       expect(() => list2.insertAt(-10, 1)).toThrowError(errorMessage);
     });
 
-    it.skip('should insert value at position', () => {
+    it('should insert value at position', () => {
+      list2.insertAt(3, 3)
     });
   });
 });

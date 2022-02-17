@@ -87,6 +87,27 @@ export default class LinkedList {
 
     insertAt(position: number, value: number) {
         if (position > this.length || position < 0) throw new Error('Position out of bounds');
+
+        let current = this.head;
+        let previous = current;
+
+        let index = 0;
+
+        while (current !== null) {
+            if (index === position) {
+                const newNode = {
+                    value,
+                    next: current
+                };
+
+                if (previous !== null) {
+                    previous.next = newNode;
+                }
+            }
+            index += 1;
+            previous = current;
+            current = current.next;
+        }
     }
 
     toArray() {
