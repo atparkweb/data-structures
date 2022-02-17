@@ -5,7 +5,7 @@ export default class LinkedList {
     head: ListNode | null;
 
     constructor(numbers: number[] = []) {
-        this.length = numbers.length;
+        this.length = 0;
         this.head = null;
 
         for (let i = 0; i < numbers.length; i++) {
@@ -81,6 +81,7 @@ export default class LinkedList {
         if (current === null || previous === null) return;
 
         previous.next = current.next;
+        this.length -= 1;
     }
 
     insertAt(position: number, value: number) {

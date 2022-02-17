@@ -83,6 +83,12 @@ describe('List ADT', () => {
       list2.removeAt(2);
       expect(list2.toArray()).toEqual([1, 2, 4, 5]);
     });
+
+    it('should decrement length on remove', () => {
+      expect(list2.length).toEqual(5);
+      list2.removeAt(2);
+      expect(list2.length).toEqual(4);
+    });
   });
 
   describe('search', () => {
