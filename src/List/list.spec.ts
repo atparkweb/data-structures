@@ -1,4 +1,4 @@
-import LinkedList from '../../src/List/LinkedList';
+import LinkedList from '.';
 
 describe('List ADT', () => {
   let list1: LinkedList;

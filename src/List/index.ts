@@ -1,4 +1,7 @@
-import ListNode from './ListNode';
+export interface ListNode {
+  value: number,
+  next: ListNode | null
+}
 
 export default class LinkedList {
     length: number;
