@@ -63,22 +63,20 @@ export default class LinkedList {
         return null;
     }
 
-    remove(value: number) {
+    removeAt(position: number) {
         let current = this.head;
         let previous = current;
-
-        if (current?.value === value) {
-            this.head = current.next;
-        }
+        let index = 0;
 
         while (current !== null) {
 
-            if (current.value === value) {
+            if (index === position) {
                 break;
             }
 
             previous = current;
             current = current.next;
+            index += 1;
         }
         if (current === null || previous === null) return;
 

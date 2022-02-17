@@ -76,11 +76,11 @@ describe('List ADT', () => {
 
   describe('remove', () => {
     it('should exist', () => {
-      expect(list2.remove).toBeDefined();
+      expect(list2.removeAt).toBeDefined();
     });
 
     it('should remove the correct node', () => {
-      list2.remove(3);
+      list2.removeAt(2);
       expect(list2.toArray()).toEqual([1, 2, 4, 5]);
     });
   });
