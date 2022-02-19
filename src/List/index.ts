@@ -1,25 +1,24 @@
-import Collection from '@project/Collection';
+import Collection from "@project/Collection";
 
-export interface ListNode {
-  value: number,
-  next: ListNode | null
+export interface ListNode<T> {
+  value: T,
+  next: ListNode<T> | null
 }
 
-export default class LinkedList extends Collection {
+export default class LinkedList<T> implements Collection {
     length: number;
-    head: ListNode | null;
-    tail: ListNode | null;
+    head: ListNode<T> | null;
+    tail: ListNode<T> | null;
 
-    constructor(numbers: number[] = []) {
-        super();
+    constructor(items: T[] = []) {
         this.length = 0;
         this.head = null;
         this.tail = null;
 
-        for (let i = 0; i < numbers.length; i++) {
-            const node = this.appendToTail(numbers[i]);
+        for (let i = 0; i < items.length; i++) {
+            const node = this.appendToTail(items[i]);
 
-            if (i === numbers.length - 1) {
+            if (i === items.length - 1) {
                 this.tail = node;
             }
         }
@@ -29,7 +28,7 @@ export default class LinkedList extends Collection {
         return this.length === 0;
     }
 
-    appendToTail(value: number) {
+    appendToTail(value: T) {
         let newNode;
 
         if (!this.head) {
@@ -54,7 +53,7 @@ export default class LinkedList extends Collection {
         return newNode;
     }
 
-    insertAtFront(value: number) {
+    insertAtFront(value: T) {
         const currentHead = this.head ? { value: this.head.value, next: this.head.next } : null;
 
         this.head = {
@@ -65,7 +64,7 @@ export default class LinkedList extends Collection {
         this.length += 1;
     }
 
-    search(value: number) {
+    search(value: T) {
         let current = this.head;
 
         while (current !== null) {
@@ -101,7 +100,7 @@ export default class LinkedList extends Collection {
     }
 
     // TODO: update tail if inserted at back
-    insertAt(position: number, value: number) {
+    insertAt(position: number, value: T) {
         if (position > this.length || position < 0) throw new Error('Position out of bounds');
 
         let current = this.head;

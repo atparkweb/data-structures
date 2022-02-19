@@ -1,8 +1,8 @@
 import LinkedList from '.';
 
 describe('List ADT', () => {
-  let list1: LinkedList;
-  let list2: LinkedList;
+  let list1: LinkedList<number>;
+  let list2: LinkedList<number>;
 
   beforeEach(() => {
     list1 = new LinkedList();
