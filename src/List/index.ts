@@ -1,14 +1,17 @@
+import Collection from '@project/Collection';
+
 export interface ListNode {
   value: number,
   next: ListNode | null
 }
 
-export default class LinkedList {
+export default class LinkedList extends Collection {
     length: number;
     head: ListNode | null;
     tail: ListNode | null;
 
     constructor(numbers: number[] = []) {
+        super();
         this.length = 0;
         this.head = null;
         this.tail = null;
