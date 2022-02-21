@@ -28,6 +28,11 @@ describe('List ADT', () => {
       expect(newList.head?.value).toEqual(1);
       expect(newList.toArray()).toEqual([1, 4, 9, 16]);
     });
+
+    it('should allow an array of strings', () => {
+      const newList = new LinkedList(["a", "b", "c", "d"]);
+      expect(newList.toArray()).toEqual(["a", "b", "c", "d"]);
+    });
   });
 
   describe('appendToTail', () => {
