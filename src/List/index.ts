@@ -16,11 +16,7 @@ export default class LinkedList<T> implements Collection {
         this.tail = null;
 
         for (let i = 0; i < items.length; i++) {
-            const node = this.appendToTail(items[i]);
-
-            if (i === items.length - 1) {
-                this.tail = node;
-            }
+            this.appendToTail(items[i]);
         }
     }
 
@@ -28,28 +24,31 @@ export default class LinkedList<T> implements Collection {
         return this.length === 0;
     }
 
+    incrementLength() {
+        this.length += 1;
+    }
+
+    decrementLength() {
+        this.length -= 1;
+    }
+
     appendToTail(value: T) {
-        let newNode;
+        const newNode: ListNode<T> = {
+            value,
+            next: null
+        };
 
         if (!this.head) {
-            newNode = this.head = {
-                value,
-                next: null
-            };
-        } else {
-            let current = this.head;
-
-            while (current.next !== null) {
-                current = current.next;
-            }
-
-            newNode = current.next = {
-                value,
-                next: null
-            };
+            this.head = newNode;
+        }
+        
+        if (this.tail) {
+            this.tail.next = newNode;
         }
 
-        this.length += 1;
+        this.tail = newNode;
+        this.incrementLength();
+
         return newNode;
     }
 
@@ -61,7 +60,7 @@ export default class LinkedList<T> implements Collection {
             next: currentHead
         };
 
-        this.length += 1;
+        this.incrementLength();
     }
 
     search(value: T) {
@@ -77,7 +76,6 @@ export default class LinkedList<T> implements Collection {
         return null;
     }
 
-    // TODO: update tail if last is removed
     removeAt(position: number) {
         let current = this.head;
         let previous = current;
@@ -96,12 +94,22 @@ export default class LinkedList<T> implements Collection {
         if (current === null || previous === null) return;
 
         previous.next = current.next;
-        this.length -= 1;
+
+        // update the tail if the last node was removed
+        if (index === this.length - 1) {
+            this.tail = previous;
+        }
+
+        this.decrementLength();
     }
 
-    // TODO: update tail if inserted at back
     insertAt(position: number, value: T) {
         if (position > this.length || position < 0) throw new Error('Position out of bounds');
+
+        if (position === this.length) {
+            this.appendToTail(value);
+            return;
+        }
 
         let current = this.head;
         let previous = current;
@@ -118,7 +126,7 @@ export default class LinkedList<T> implements Collection {
                 if (previous !== null) {
                     previous.next = newNode;
                 }
-                this.length += 1;
+                this.incrementLength();
                 break;
             }
 
@@ -132,7 +140,7 @@ export default class LinkedList<T> implements Collection {
                 value,
                 next: null
             };
-            this.length += 1;
+            this.incrementLength();
         }
     }
 
