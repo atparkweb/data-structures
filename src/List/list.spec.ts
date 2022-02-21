@@ -79,7 +79,7 @@ describe('List ADT', () => {
     });
   });
 
-  describe('remove', () => {
+  describe('removeAt', () => {
     it('should exist', () => {
       expect(list2.removeAt).toBeDefined();
     });
@@ -93,6 +93,11 @@ describe('List ADT', () => {
       expect(list2.length).toEqual(5);
       list2.removeAt(2);
       expect(list2.length).toEqual(4);
+    });
+
+    it('should update tail on remove', () => {
+      list2.removeAt(4);
+      expect(list2.tail?.value).toEqual(4);
     });
   });
 
@@ -124,7 +129,8 @@ describe('List ADT', () => {
     });
 
     it('should insert value at position', () => {
-      list2.insertAt(3, 3)
+      list2.insertAt(3, 100)
+      expect(list2.toArray()[3]).toEqual(100);
     });
 
     it('should insert value on an empty list', () => {
@@ -136,6 +142,11 @@ describe('List ADT', () => {
       expect(list2.length).toEqual(5);
       list2.insertAt(0, 1);
       expect(list2.length).toEqual(6);
+    });
+
+    it('should update the tail if inserted at the end', () => {
+      list2.insertAt(5, 100);
+      expect(list2.tail?.value).toEqual(100);
     });
   });
 });
