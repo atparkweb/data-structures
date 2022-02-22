@@ -10,7 +10,7 @@ export default class LinkedList<T> implements Collection {
     head: ListNode<T> | null;
     tail: ListNode<T> | null;
 
-    constructor(items: T[] = []) {
+    constructor(items: Array<T> = []) {
         this.length = 0;
         this.head = null;
         this.tail = null;
