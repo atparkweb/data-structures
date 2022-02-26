@@ -25,7 +25,9 @@ export default class Queue<T> implements Collection {
         return this._items;
     }
 
-    peek() {}
+    peek() {
+        return this._items[this._frontIndex];
+    }
 
     enqueue(value: T) {}
 }

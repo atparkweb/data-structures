@@ -26,6 +26,11 @@ describe.only('Queue', () => {
             expect(queue.peek).toBeDefined();
             expect(queue.peek).toBeInstanceOf(Function);
         });
+
+        it('should return the value at front', () => {
+            const q = new Queue(["First", "Second", "Third"]);
+            expect(q.peek()).toEqual("First");
+        });
     });
 
     describe('enqueue', () => {
