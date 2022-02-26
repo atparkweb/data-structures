@@ -10,4 +10,6 @@ export default class Queue<T> implements Collection {
     toArray() {
         return this.items;
     }
+
+    enqueue(value: T) {}
 }
