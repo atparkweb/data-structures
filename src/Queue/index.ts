@@ -29,5 +29,8 @@ export default class Queue<T> implements Collection {
         return this._items[this._frontIndex];
     }
 
-    enqueue(value: T) {}
+    enqueue(value: T) {
+        this._items[this._rearIndex] = value;
+        this._rearIndex += 1;
+    }
 }

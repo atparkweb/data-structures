@@ -42,6 +42,8 @@ describe.only('Queue', () => {
         it('should items at the front', () => {
             queue.enqueue(4);
             queue.enqueue(100);
+            queue.enqueue(42);
+            expect(queue.peek()).toEqual(4);
         });
     });
 });
