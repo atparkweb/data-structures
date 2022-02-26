@@ -4,11 +4,11 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "rootDir": "./src",
+    "rootDir": ".",
     "outDir": "./build",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "@project/*": ["*"]
+      "@project/*": ["./*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
