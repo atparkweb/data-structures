@@ -33,6 +33,10 @@ export default class Queue<T> implements Collection {
         if (this._items.length < this._maxSize) {
             this._items[this._rearIndex] = value;
             this._rearIndex = (this._rearIndex + 1) % this._maxSize;
+        } else {
+            console.warn("The queue is full. Max Size: ", this._maxSize);
         }
+
+        return this;
     }
 }
