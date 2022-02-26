@@ -52,5 +52,12 @@ describe.only('Queue', () => {
             q.enqueue(3);
             expect(q.rearIndex).toEqual(2);
         });
+
+        it('should not add to the queue if it\'s full', () => {
+            const q = new Queue([1, 2, 3], 3);
+            q.enqueue(4);
+            expect(q.rearIndex).toEqual(3);
+            expect(q.toArray()).toEqual([1, 2, 3]);
+        });
     });
 });

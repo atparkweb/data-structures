@@ -30,9 +30,9 @@ export default class Queue<T> implements Collection {
     }
 
     enqueue(value: T) {
-        this._items[this._rearIndex] = value;
-
-        // update the rear index and wrap to beginning if it exceeds max
-        this._rearIndex = (this._rearIndex + 1) % this._maxSize;
+        if (this._items.length < this._maxSize) {
+            this._items[this._rearIndex] = value;
+            this._rearIndex = (this._rearIndex + 1) % this._maxSize;
+        }
     }
 }
