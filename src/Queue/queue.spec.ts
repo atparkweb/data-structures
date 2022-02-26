@@ -45,5 +45,12 @@ describe.only('Queue', () => {
             queue.enqueue(42);
             expect(queue.peek()).toEqual(4);
         });
+
+        it('should update the rear index', () => {
+            const q = new Queue([1]);
+            expect(q.rearIndex).toEqual(1);
+            q.enqueue(3);
+            expect(q.rearIndex).toEqual(2);
+        });
     });
 });
