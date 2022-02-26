@@ -4,7 +4,7 @@ Basic examples of common data structures
 Using Typescript to implement common abstract data types:
 
 - [x] List
-- [ ] Stack
+- [x] Stack
 - [ ] Queue
 - [ ] Tree
 - [ ] Binary Search Tree
