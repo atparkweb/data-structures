@@ -1,30 +1,42 @@
 import Queue from '@project/Queue';
 
 describe.only('Queue', () => {
-  let queue: Queue<number>;
+    let queue: Queue<number>;
 
-  beforeEach(() => {
-    queue = new Queue();
-  });
-
-  it('should exist', () => {
-    expect(Queue).toBeDefined();
-    expect(Queue).toBeInstanceOf(Function);
-  });
-
-  it('should create from an array', () => {
-    const q = new Queue([1, 2, 3, 4]);
-    expect(q.toArray()).toEqual([1, 2, 3, 4]);
-  });
-
-  it('should create an empty array by default', () => {
-    expect(queue.toArray()).toEqual([]);
-  });
-
-  describe('enqueue', () => {
-    it('should be defined', () => {
-      expect(queue.enqueue).toBeDefined();
-      expect(queue.enqueue).toBeInstanceOf(Function);
+    beforeEach(() => {
+        queue = new Queue();
     });
-  });
+
+    it('should exist', () => {
+        expect(Queue).toBeDefined();
+        expect(Queue).toBeInstanceOf(Function);
+    });
+
+    it('should create from an array', () => {
+        const q = new Queue([1, 2, 3, 4]);
+        expect(q.toArray()).toEqual([1, 2, 3, 4]);
+    });
+
+    it('should create an empty array by default', () => {
+        expect(queue.toArray()).toEqual([]);
+    });
+
+    describe('peek', () => {
+        it('should be defined', () => {
+            expect(queue.peek).toBeDefined();
+            expect(queue.peek).toBeInstanceOf(Function);
+        });
+    });
+
+    describe('enqueue', () => {
+        it('should be defined', () => {
+            expect(queue.enqueue).toBeDefined();
+            expect(queue.enqueue).toBeInstanceOf(Function);
+        });
+
+        it('should items at the front', () => {
+            queue.enqueue(4);
+            queue.enqueue(100);
+        });
+    });
 });
