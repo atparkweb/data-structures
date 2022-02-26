@@ -1,4 +1,4 @@
-import LinkedList from '.';
+import LinkedList from '@project/List';
 
 describe('List ADT', () => {
   let list1: LinkedList<number>;

@@ -1,4 +1,4 @@
-import Stack from '.';
+import Stack from '@project/Stack';
 
 describe('Stack', () => {
   let stack1: Stack<any>,
