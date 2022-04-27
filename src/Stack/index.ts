@@ -1,6 +1,6 @@
-import Collection from "@project/Collection";
+import AbstractCollection from "@project/Abstract/Collection";
 
-export default class Stack<T> implements Collection {
+export default class Stack<T> implements AbstractCollection<T> {
   private array: Array<T>;
 
   constructor(items: Array<T> = []) {

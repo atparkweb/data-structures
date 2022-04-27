@@ -1,11 +1,11 @@
-import Collection from "@project/Collection";
+import AbstractCollection from "@project/Abstract/Collection";
 
 export interface ListNode<T> {
   value: T,
   next: ListNode<T> | null
 }
 
-export default class LinkedList<T> implements Collection {
+export default class LinkedList<T> implements AbstractCollection<T> {
     length: number;
     head: ListNode<T> | null;
     tail: ListNode<T> | null;
@@ -41,7 +41,7 @@ export default class LinkedList<T> implements Collection {
         if (!this.head) {
             this.head = newNode;
         }
-        
+
         if (this.tail) {
             this.tail.next = newNode;
         }

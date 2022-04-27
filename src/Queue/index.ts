@@ -1,6 +1,7 @@
-import Collection from '@project/Collection';
+import AbstractQueue from '@project/Abstract/Queue';
+import AbstractCollection from '@project/Abstract/Collection';
 
-export default class Queue<T> implements Collection {
+export default class Queue<T> implements AbstractQueue<T>, AbstractCollection<T> {
     private _items: Array<T>;
     private _frontIndex: number;
     private _rearIndex: number;
