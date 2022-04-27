@@ -1,8 +1,8 @@
 import AbstractCollection from "@project/Abstract/Collection";
 
 export interface ListNode<T> {
-  value: T,
-  next: ListNode<T> | null
+    value: T,
+    next: ListNode<T> | null
 }
 
 export default class LinkedList<T> implements AbstractCollection<T> {
