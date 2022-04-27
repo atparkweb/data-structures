@@ -40,4 +40,10 @@ export default class Queue<T> implements AbstractQueue<T>, AbstractCollection<T>
 
         return this;
     }
+
+    dequeue(): T {
+        const item = this._items[this._frontIndex];
+        this._frontIndex += 1;
+        return item;
+    }
 }
