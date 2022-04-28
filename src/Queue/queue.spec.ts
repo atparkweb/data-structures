@@ -66,4 +66,26 @@ describe.only("Queue", () => {
             expect(q.toArray()).toEqual([42]);
         });
     });
+
+    describe("dequeue", () => {
+        let q: Queue<string>;
+
+        beforeEach(() => {
+            q = new Queue([]);
+        })
+        it("should be defined", () => {
+            expect(q.dequeue).toBeDefined();
+        });
+
+        it("should return the next item", () => {
+            q.enqueue("first")
+                .enqueue("second")
+                .enqueue("last");
+
+            expect(q.toArray()).toEqual(["first", "second", "last"]);
+
+            const next = q.dequeue();
+            expect(next).toEqual("first");
+        });
+    });
 });
