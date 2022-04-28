@@ -1,14 +1,14 @@
 import AbstractCollection from "@project/Abstract/Collection";
 
-export interface ListNode<T> {
+export interface Node<T> {
     value: T,
-    next: ListNode<T> | null
+    next: Node<T> | null
 }
 
 export default class LinkedList<T> implements AbstractCollection<T> {
     length: number;
-    head: ListNode<T> | null;
-    tail: ListNode<T> | null;
+    head: Node<T> | null;
+    tail: Node<T> | null;
 
     constructor(items: Array<T> = []) {
         this.length = 0;
@@ -24,16 +24,16 @@ export default class LinkedList<T> implements AbstractCollection<T> {
         return this.length === 0;
     }
 
-    incrementLength() {
+    private incrementLength() {
         this.length += 1;
     }
 
-    decrementLength() {
+    private decrementLength() {
         this.length -= 1;
     }
 
     appendToTail(value: T) {
-        const newNode: ListNode<T> = {
+        const newNode: Node<T> = {
             value,
             next: null
         };
